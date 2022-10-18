@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import mediapipe as mp
 mp_selfie_segmentation = mp.solutions.selfie_segmentation
+import sys
 
 class ForegroundMask:
     """
@@ -30,6 +31,10 @@ class ForegroundMask:
         width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
         height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
         dim = (int(width), int(height))
+        print(f"KATO TÄMÄ PRINTTI: {height} {width}")
+        sys.stdout.write(height)
+        sys.stdout.write(width)
+
         self.bg_image = cv2.resize(self.bg_image, dim, interpolation = cv2.INTER_AREA)
         return self.bg_image
 
